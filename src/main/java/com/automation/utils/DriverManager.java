@@ -11,7 +11,11 @@ import java.time.Duration;
 
 public class DriverManager {
 
-    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+    public static WebDriver getDriver() {
+        return driver.get();
+    }
 
     public static void setDriver(String browserName) {
         switch (browserName.toLowerCase()) {
@@ -43,10 +47,6 @@ public class DriverManager {
 
         // Set implicit wait
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
-
-    public static WebDriver getDriver() {
-        return driver.get();
     }
 
     public static void quitDriver() {

@@ -1,17 +1,25 @@
 package com.automation.tests;
 
 import com.automation.pages.LoginPage;
+import com.automation.utils.ConfigReader;
 import com.automation.utils.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Properties;
+
 public class LoginTest extends BaseTest{
+
+    Properties testConfigs = ConfigReader.loadProperties(System.getProperty("user.dir") + "/src/test/resources/configuration.properties");
 
     private LoginPage loginPage;
 
-    private final String BASE_URL = "https://opensource-demo.orangehrmlive.com/";
-    private final String Valid_username = "Admin";
-    private final String Valid_password = "admin123";
+    // Test Data
+    private final String BASE_URL = testConfigs.getProperty("BaseUrl");
+    private final String Valid_username = testConfigs.getProperty("Valid_username");
+    private final String Valid_password = testConfigs.getProperty("Valid_password");
+    private final String Invalid_username = testConfigs.getProperty("Invalid_username");
+    private final String Invalid_password = testConfigs.getProperty("Invalid_password");
 
 
     @Test(priority = 1, description = "Verify successful login with valid credentials")
@@ -38,7 +46,7 @@ public class LoginTest extends BaseTest{
         loginPage = new LoginPage(DriverManager.getDriver());
 
         // login with invalid username
-        loginPage.loginToApp("invalidUsername",Valid_password);
+        loginPage.loginToApp(Invalid_username,Valid_password);
 
         //Verify error message is displayed
         Assert.assertTrue(loginPage.isErrorMessageDisplayed(), "Error message should be displayed");
@@ -51,7 +59,7 @@ public class LoginTest extends BaseTest{
         loginPage = new LoginPage(DriverManager.getDriver());
 
         // login with invalid username
-        loginPage.loginToApp(Valid_username,"invalid123");
+        loginPage.loginToApp(Valid_username,Invalid_password);
 
         // Also verify that error message is correct
         String actualErrorMsg = loginPage.getErrorMessage();

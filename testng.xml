@@ -9,7 +9,7 @@
         <classes>
             <class name="com.automation.tests.LoginTest">
                 <methods>
-                    <exclude name="testSuccessfulLogin"/>
+                    <include name="testSuccessfulLogin"/>
                     <exclude name="testInvalidUsername"/>
                     <exclude name="testInvalidPassword"/>
                     <exclude name="testEmptyCredentials"/>
@@ -19,7 +19,7 @@
             </class>
             <class name="com.automation.tests.AdminTest">
                 <methods>
-                    <include name="testAddUser"/>
+                    <exclude name="testAddUser"/>
                 </methods>
             </class>
         </classes>

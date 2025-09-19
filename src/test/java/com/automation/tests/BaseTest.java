@@ -15,6 +15,7 @@ public class BaseTest {
         DriverManager.getDriver().manage().deleteAllCookies();
     }
 
+
     @AfterMethod
     public void tearDown() {
         System.out.println("Cleaning up test...");
