@@ -1,5 +1,6 @@
 package com.automation.tests;
 
+import com.automation.base.BaseTest;
 import com.automation.pages.LoginPage;
 import com.automation.utils.ConfigReader;
 import com.automation.utils.DriverManager;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.Properties;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
     Properties testConfigs = ConfigReader.loadProperties(System.getProperty("user.dir") + "/src/test/resources/configuration.properties");
 

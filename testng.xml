@@ -14,7 +14,6 @@
                     <exclude name="testInvalidPassword"/>
                     <exclude name="testEmptyCredentials"/>
                     <exclude name="testFieldInteractions"/>
-
                 </methods>
             </class>
             <class name="com.automation.tests.AdminTest">
@@ -24,5 +23,4 @@
             </class>
         </classes>
     </test>
-
 </suite>

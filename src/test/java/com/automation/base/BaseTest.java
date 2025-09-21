@@ -1,4 +1,4 @@
-package com.automation.tests;
+package com.automation.base;
 
 import com.automation.utils.DriverManager;
 import org.testng.annotations.AfterMethod;
@@ -14,7 +14,6 @@ public class BaseTest {
         DriverManager.getDriver().manage().window().maximize();
         DriverManager.getDriver().manage().deleteAllCookies();
     }
-
 
     @AfterMethod
     public void tearDown() {

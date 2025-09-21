@@ -1,15 +1,14 @@
 package com.automation.tests;
 
+import com.automation.base.BaseTest;
 import com.automation.pages.AdminPage;
 import com.automation.pages.LoginPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import com.automation.utils.DriverManager;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 
 
-public class AdminTest extends BaseTest{
+public class AdminTest extends BaseTest {
     private AdminPage  adminPage;
     private final String Valid_username = "Admin";
     private final String Valid_password = "admin123";
